@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '../views/Login.vue'
-import Employee from '../views/Employee'
-import Employer from '../views/Employer'
+import Login from '../views2/Login.vue'
+import Employee from '../views2/Employee'
+import Employer from '../views2/Employer'
 
 Vue.use(VueRouter)
 
