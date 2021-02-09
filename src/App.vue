@@ -2,8 +2,12 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Login</router-link> |
-      <router-link to="/employee">Employee</router-link> |
-      <router-link to="/employer">Employer</router-link> |
+      <router-link to="/Employee">Employee</router-link> |
+      <router-link to="/employee/MySchedule">My Schedule</router-link> |
+      <router-link to="/employee/TeamSchedule">Team Schedule</router-link> |
+      <router-link to="/Employer">Employer</router-link> |
+      <router-link to="/employer/CreateEmployee">Create Employee</router-link> |
+      <router-link to="/employer/CreateSchedule">Create Schedule</router-link> |
     </div>
     <router-view/>
   </div>
