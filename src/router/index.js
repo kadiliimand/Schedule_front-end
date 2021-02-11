@@ -9,7 +9,7 @@ import CreateEmployee from '../views/employer/CreateEmployee'
 import CreateSchedule from '../views/employer/CreateSchedule'
 import ExportData from '../views/employer/ExportData'
 import GetEmployees from '../views/employer/GetEmployees'
-
+import GetSchedule from '../views/employer/GetSchedule'
 Vue.use(VueRouter)
 
 const routes = [
@@ -59,7 +59,13 @@ const routes = [
     path: '/employer/GetEmployees',
     name: 'GetEmployees',
     component: GetEmployees
+  },
+  {
+    path: '/employer/GetSchedule',
+    name: 'GetSchedule',
+    component: GetSchedule
   }
+
 
 
 ]

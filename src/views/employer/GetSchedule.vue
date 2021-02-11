@@ -4,21 +4,28 @@
     <datepicker v-model="dateFrom"></datepicker>
     Choose end date:
     <datepicker v-model="dateTo"></datepicker>
+    <button v-on:click="getData()">Get schedule</button>
 
-    <button v-on:click="getData()">Get team schedule</button>
     <table border="1">
       <tr>
-        <th>Name</th>
         <th>Date</th>
-        <th>Shift start time</th>
-        <th>Shift end time</th>
-
-      </tr>
       <tr v-for="row in schedule">
-        <td>{{ row.name }}</td>
         <td>{{ row.date }}</td>
-        <td>{{ row.startTime }}</td>
-        <td>{{ row.endTime }}</td>
+        <table border="1">
+            <th v-for="row in schedule">Employee</th>
+          <tr>
+            <td>{{ row.idNumber }}>
+              <table border="1">
+                  <th v-for="row in schedule">Shift start time</th>
+                  <th v-for="row in schedule">Shift end time</th>
+                <tr >
+                  <td>{{ row.startTime }}</td>
+                  <td>{{ row.endTime }}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
       </tr>
     </table>
   </div>
@@ -38,13 +45,13 @@ let getData = function () {
       .catch(response => console.log(response))
 }
 export default {
-  name: "GetTeamSchedule",
+  name: "GetSchedule",
   components: {Datepicker},
   data: function () {
     return {
       dateFrom: new Date(),
       dateTo: new Date(),
-      schedule: {}
+      schedule: ''
     }
   },
 

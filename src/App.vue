@@ -10,7 +10,7 @@
       <router-link to="/employer/CreateSchedule">Create Schedule</router-link> |
       <router-link to="/employer/ExportData">Export Data</router-link> |
       <router-link to="/employer/GetEmployees">Get Employees</router-link> |
-
+      <router-link to="/employer/GetSchedule">Get Schedule</router-link> |
     </div>
     <router-view/>
   </div>
