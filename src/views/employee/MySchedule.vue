@@ -2,8 +2,8 @@
   <div>
     <h1>My schedule</h1>
     Insert name:<input v-model="name"><br>
-    Choose start date:<input v-model="startDate">
-    end date:<input v-model="endDate"><br>
+    Choose start date:<datepicker v-model="startDate"></datepicker>
+    Choose end date:<datepicker v-model="endDate"></datepicker><br>
     <br><br>
 
     <table border="1">
@@ -28,6 +28,8 @@
   </div>
 </template>
 <script>
+import Datepicker from 'vuejs-datepicker';
+
 let getData = function () {
   this.$http.get('http://localhost:8080/Katrin/mySchedule', {
     params: {
@@ -44,7 +46,7 @@ let getData = function () {
 
 export default {
   name: 'MySchedule',
-  components: {},
+  components: {Datepicker},
   data: function () {
     return {
       schedule: {}

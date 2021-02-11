@@ -1,20 +1,20 @@
 <template>
-  <div class="home">
+  <div class="Employer">
     <h1>Create new employee</h1>
-    Id number:<input v-model="idNumber"><br>
-    Name:<input v-model="name"><br>
-    Department:<input v-model="departmentCode"><br>
-    Hourly pay:<input v-model="hourlyPay"><br>
-    Salary code: <input v-model="salaryCode"><br>
-    Password:<input v-model="password"><br>
+    Id number:<input v-model="idNumber" required><br>
+    Name:<input v-model="name" required><br>
+    Department:<input v-model="departmentCode" required><br>
+    Hourly pay:<input v-model="hourlyPay" required><br>
+    Salary code: <input v-model="salaryCode" required><br>
+    Password:<input v-model="password" required><br>
     <button v-on:click="saveInHtml()">Save employee</button><br><br>
-    {{answer}}
+    <b>{{answer}}</b>
   </div>
 
 </template>
 <script>
 let saveInJs = function () {
-  this.$http.post('http://localhost:8080/Katrin/createEmployee', {}, {
+  this.$http.post('http://localhost:8080/createEmployee', {}, {
     params: {
       idNumber: this.idNumber,
       name: this.name,
@@ -29,18 +29,18 @@ let saveInJs = function () {
 }
 
 export default {
-  name: 'Employee',
+  name: 'CreateEmployee',
   components: {},
   data: function () {
     return {
       idNumber: '',
       name: '',
       address: '',
-      department: '',
+      departmentCode: '',
       hourlyPay: '',
       salaryCode: '',
       password: '',
-      answer: 'New employee created!'
+      answer: ''
     }
   },
   methods: {

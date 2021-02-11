@@ -7,11 +7,12 @@ import TeamSchedule from '../views/employee/TeamSchedule'
 import Employer from '../views/Employer'
 import CreateEmployee from '../views/employer/CreateEmployee'
 import CreateSchedule from '../views/employer/CreateSchedule'
+import ExportData from '../views/employer/ExportData'
+import GetEmployees from '../views/employer/GetEmployees'
 
 Vue.use(VueRouter)
 
 const routes = [
-
   {
     path: '/',
     name: 'Login',
@@ -49,6 +50,17 @@ const routes = [
     name: 'CreateSchedule',
     component: CreateSchedule
   },
+  {
+    path: '/employer/ExportData',
+    name: 'ExportData',
+    component: ExportData
+  },
+  {
+    path: '/employer/GetEmployees',
+    name: 'GetEmployees',
+    component: GetEmployees
+  }
+
 
 ]
 
