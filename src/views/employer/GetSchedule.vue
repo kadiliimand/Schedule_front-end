@@ -5,31 +5,18 @@
     Choose end date:
     <v-date-picker v-model="dateTo"></v-date-picker>
     <button v-on:click="getData()">Get schedule</button>
-
-    <table border="1">
-      <th>Date</th>
-        <tr v-for="row in schedule">
-        <td>{{ row.date }}</td>
-        <table border="1">
-          <tr>
-            <th>Employee</th>
-          <tr v-for="row in schedule">
-            <td>{{ row.name }}
-              <table border="1">
-                <tr>
-                  <th>Shift start time</th>
-                  <th>Shift end time</th>
-                </tr>
-                <tr v-for="row in schedule">
-                  <td>{{ row.startTime }}</td>
-                  <td>{{ row.endTime }}</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-      </tr>
-    </table>
+    <v-card1-->
+      <v-card-title>
+        <v-text-field
+            v-model="search"
+            append-icon="mdi-magnify"
+            label="Search"
+            single-line
+            hide-details
+        ></v-text-field>
+      </v-card-title>
+      <v-data-table :headers="headers" :items="shifts" :search="search"></v-data-table>
+    </v-card1-->
   </div>
 </template>
 
@@ -50,9 +37,9 @@ export default {
   components: {},
   data: function () {
     return {
-      dateFrom: '',
-      dateTo: '',
-      schedule: ''
+      search: '',
+      headers: [{text: 'Date', value: "date"}, {text: 'Name', value: "name"}],
+      shifts: [{text: 'Shift start', value: "startTime"}, {text: 'Shift end', value: "endTime"}]
     }
   },
 
