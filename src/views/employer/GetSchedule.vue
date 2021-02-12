@@ -6,12 +6,12 @@
     <datepicker v-model="dateTo"></datepicker>
     <button v-on:click="getData()">Get schedule</button>
 
-    <table border="1">
+    <table border="3">
       <tr>
         <th>Date</th>
       <tr v-for="row in schedule">
         <td>{{ row.date }}</td>
-        <table border="1">
+        <table border="2">
             <th v-for="row in schedule">Employee</th>
           <tr>
             <td>{{ row.idNumber }}>
@@ -66,6 +66,4 @@ export default {
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,80 +1,125 @@
-
 <template>
   <div>
-    <h1>Create schedule</h1>
-    Name: <input v-model="name" required><br>
-    <datepicker v-model="date" required></datepicker>
-    Schedule start time: <input v-model="startTime" placeholder="format 00:00" required>
-    Schedule end time: <input v-model="endTime" placeholder="format 00:00" required>
-    <button v-on:click="saveInHtml()">Save shift</button><br>
-    <table border="1">
-      <tr>
-        <th>Shift id</th>
-        <th>Id number</th>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Shift start time</th>
-        <th>Shift end time</th>
-        <th>Worked time</th>
+    <div>
+      <h1>Create shift</h1>
+      Name: <input v-model="name" required><br>
+      Choose shift date:
+      <datepicker v-model="date" required></datepicker>
+      <br>
+      Schedule start time: <input v-model="startTime" placeholder="format 00:00" required><br>
+      Schedule end time: <input v-model="endTime" placeholder="format 00:00" required><br>
+      <button v-on:click="saveInHtml()">Save shift</button>
+      <br>
+      <br>
 
-      </tr>
-      <tr v-for="row in schedule">
-        <td>{{ row.id }}</td>
-        <td>{{ row.idNumber }}</td>
-        <td>{{ row.name }}</td>
-        <td>{{ row.date }}</td>
-        <td>{{ row.startTime }}</td>
-        <td>{{ row.endTime }}</td>
-        <td>{{ row.workedTime }}</td>
+      <table border="1">
+        <tr>
+          <th>Shift id</th>
+          <th>Id number</th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Shift start time</th>
+          <th>Shift end time</th>
+          <th>Worked time</th>
+        </tr>
+        <tr v-for="row in schedule">
+          <td>{{ row.id }}</td>
+          <td>{{ row.idNumber }}</td>
+          <td>{{ row.name }}</td>
+          <td>{{ row.date }}</td>
+          <td>{{ row.startTime }}</td>
+          <td>{{ row.endTime }}</td>
+          <td>{{ row.workedTime }}</td>
+        </tr>
+      </table>
 
-      </tr>
-    </table>
-    {{schedule}}
+      <h1>Change shift</h1>
+      Shift id: <input v-model="id" required><br>
+      Name: <input v-model="name" required><br>
+      Choose shift date:
+      <datepicker v-model="date" required></datepicker>
+      <br>
+      Schedule start time: <input v-model="startTime" placeholder="format 00:00" required><br>
+      Schedule end time: <input v-model="endTime" placeholder="format 00:00" required><br>
+      <button v-on:click="saveInHtml()">Change shift</button>
+      <br>
+
+      <h1>Delete shift</h1>
+      Shift id: <input v-model="id" required><br>
+      <button v-on:click="saveInHtml()">Delete shift</button>
+      <br>
+
+    </div>
   </div>
 </template>
 <script>
 import Datepicker from 'vuejs-datepicker';
-let saveInJs = function () {
+
+let createShift = function () {
   this.$http.post('http://localhost:8080/public/createSchedule', {}, {
     params: {
       name: this.name,
       date: this.date,
       startTime: this.startTime,
-      endTime: this.endTime
+      endTime: this.endTime,
+
     }
   })
       .then(response => this.answer = response.data)
       .catch(response => console.log(response))
 }
 
-
 let getData = function () {
   this.$http.get('http://localhost:8080/public/getScheduleData')
       .then(response => this.schedule = response.data)
       .catch(response => console.log(response))
 }
+let changeShift = function () {
+  this.$http.post('http://localhost:8080/public/changeScheduleRow', {}, {
+    params: {
+      id: this.id,
+      name: this.name,
+      date: this.date,
+      startTime: this.startTime,
+      endTime: this.endTime,
+      answer: 'Shift changed'
+    }
+  })
+      .then(response => this.answer = response.data)
+      .catch(response => console.log(response))
+}
 
+let deleteShift = function () {
+  this.$http.post('http://localhost:8080/public/deleteEmployeeScheduleRow', {}, {
+    params: {
+      id: this.id
+    }
+  })
+      .then(response => this.answer = response.data)
+      .catch(response => console.log(response))
+}
 
 export default {
   name: 'CreateSchedule',
   components: {Datepicker},
   data: function () {
     return {
-      name: '',
-      date: '',
-      startTime: '',
-      endTime: '',
-      schedule: {},
-      answer: 'Shift created!'
+      answer: 'Shift created',
+      changed: 'Shift changed',
+      deleted: 'Shift deleted',
+      schedule: {}
     }
   },
 
   methods: {
-    saveInHtml: saveInJs,
-    getData: getData
+    saveInHtml: createShift,
+    getData: getData,
+    changeShift: changeShift,
+    deleteShift: deleteShift
   },
   mounted() {
     this.getData();
   }
 }
 </script>
+<style scoped></style>

@@ -6,7 +6,7 @@
     <datepicker v-model="dateTo"></datepicker>
 
     <button v-on:click="getData()">Get team schedule</button>
-    <table border="1">
+    <table border="2">
       <tr>
         <th>Name</th>
         <th>Date</th>
