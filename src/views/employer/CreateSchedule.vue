@@ -4,7 +4,7 @@
       <h1>Create shift</h1>
       Name: <input v-model="name" required><br>
       Choose shift date:
-      <datepicker v-model="date" required></datepicker>
+      <v-date-picker v-model="date" required></v-date-picker>
       <br>
       Schedule start time: <input v-model="startTime" placeholder="format 00:00" required><br>
       Schedule end time: <input v-model="endTime" placeholder="format 00:00" required><br>
@@ -53,7 +53,6 @@
   </div>
 </template>
 <script>
-import Datepicker from 'vuejs-datepicker';
 
 let createShift = function () {
   this.$http.post('http://localhost:8080/public/createSchedule', {}, {
@@ -101,7 +100,7 @@ let deleteShift = function () {
 
 export default {
   name: 'CreateSchedule',
-  components: {Datepicker},
+  components: {},
   data: function () {
     return {
       answer: 'Shift created',

@@ -1,9 +1,9 @@
 <template>
   <div>
     Choose start date:
-    <datepicker v-model="dateFrom"></datepicker>
+    <v-date-picker v-model="dateFrom"></v-date-picker>
     Choose end date:
-    <datepicker v-model="dateTo"></datepicker>
+    <v-date-picker v-model="dateTo"></v-date-picker>
 
     <button v-on:click="getData()">Get team schedule</button>
     <table border="2">
@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import Datepicker from "vuejs-datepicker";
 
 let getData = function () {
   this.$http.get('http://localhost:8080/public/getAllEmployeesScheduleDataWithNames', {
@@ -39,11 +38,11 @@ let getData = function () {
 }
 export default {
   name: "GetTeamSchedule",
-  components: {Datepicker},
+  components: {},
   data: function () {
     return {
-      dateFrom: new Date(),
-      dateTo: new Date(),
+      dateFrom: '',
+      dateTo: '',
       schedule: {}
     }
   },
