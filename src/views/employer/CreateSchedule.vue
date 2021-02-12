@@ -68,11 +68,6 @@ let createShift = function () {
       .catch(response => console.log(response))
 }
 
-let getData = function () {
-  this.$http.get('http://localhost:8080/public/getScheduleDataWithNames')
-      .then(response => this.schedule = response.data)
-      .catch(response => console.log(response))
-}
 let changeShift = function () {
   this.$http.post('http://localhost:8080/public/changeScheduleRow', {}, {
     params: {
@@ -112,7 +107,6 @@ export default {
 
   methods: {
     saveInHtml: createShift,
-    getData: getData,
     changeShift: changeShift,
     deleteShift: deleteShift
   },
