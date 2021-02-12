@@ -6,10 +6,11 @@ import MySchedule from '../views/employee/MySchedule'
 import TeamSchedule from '../views/employee/TeamSchedule'
 import Employer from '../views/Employer'
 import CreateEmployee from '../views/employer/CreateEmployee'
-import CreateSchedule from '../views/employer/CreateSchedule'
-import ExportData from '../views/employer/ExportData'
 import GetEmployees from '../views/employer/GetEmployees'
+import CreateSchedule from '../views/employer/CreateSchedule'
 import GetSchedule from '../views/employer/GetSchedule'
+import ExportData from '../views/employer/ExportData'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -46,24 +47,26 @@ const routes = [
     component: CreateEmployee
   },
   {
+    path: '/employer/GetEmployees',
+    name: 'GetEmployees',
+    component: GetEmployees
+  },
+
+  {
     path: '/employer/CreateSchedule',
     name: 'CreateSchedule',
     component: CreateSchedule
   },
   {
-    path: '/employer/ExportData',
-    name: 'ExportData',
-    component: ExportData
-  },
-  {
-    path: '/employer/GetEmployees',
-    name: 'GetEmployees',
-    component: GetEmployees
-  },
-  {
     path: '/employer/GetSchedule',
     name: 'GetSchedule',
     component: GetSchedule
+  },
+
+  {
+    path: '/employer/ExportData',
+    name: 'ExportData',
+    component: ExportData
   }
 
 

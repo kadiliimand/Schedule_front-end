@@ -13,7 +13,6 @@
         Id number:<input v-model="idNumber"><br>
         Password:<input v-model="password"><br><br>
     <router-link to="/Employer" v-on:click="login()">Login</router-link>
-<!--    <img src="https://answersafrica.com/wp-content/uploads/2013/08/camel-teeth.jpg">-->
 
   </div>
 

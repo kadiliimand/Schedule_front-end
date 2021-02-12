@@ -1,6 +1,5 @@
 <template>
-<div id="mySchedule">
-  <div id="center">
+  <div>
     <h1>My schedule</h1>
     <br><br>
     Insert name:<br><input v-model="name"><br>
@@ -20,8 +19,6 @@
       <th>Shift start</th>
       <th>Shift end</th>
       <th>Worked time</th>
-      <!--        <th>Overtime <input v-model="overtime" placeholder="overtime"></th>-->
-      <!--        <button v-on:click="getData()">Submit overtime!</button>-->
 
     </tr>
     <tr v-for="row in schedule">
@@ -33,7 +30,7 @@
     </tr>
   </table>
   </div>
-</div>
+
 </template>
 <script>
 import Datepicker from 'vuejs-datepicker';

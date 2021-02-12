@@ -6,19 +6,22 @@
     <datepicker v-model="dateTo"></datepicker>
     <button v-on:click="getData()">Get schedule</button>
 
-    <table border="3">
+    <table border="1">
       <tr>
         <th>Date</th>
       <tr v-for="row in schedule">
         <td>{{ row.date }}</td>
-        <table border="2">
-            <th v-for="row in schedule">Employee</th>
+        <table border="1">
           <tr>
+            <th >Employee</th>
+          <tr v-for="row in schedule">
             <td>{{ row.idNumber }}>
               <table border="1">
-                  <th v-for="row in schedule">Shift start time</th>
-                  <th v-for="row in schedule">Shift end time</th>
-                <tr >
+                <tr>
+                  <th>Shift start time</th>
+                  <th>Shift end time</th>
+                </tr>
+                <tr  v-for="row in schedule">
                   <td>{{ row.startTime }}</td>
                   <td>{{ row.endTime }}</td>
                 </tr>
@@ -28,6 +31,7 @@
         </table>
       </tr>
     </table>
+    {{schedule}}
   </div>
 </template>
 

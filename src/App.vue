@@ -19,18 +19,15 @@
 <script>
 export default {
   name: "ExportData",
-
   data: function () {
     return{
       token: localStorage.getItem('user-token')
     }
-
   }
 }
 </script>
 
 <style>
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -38,37 +35,28 @@ export default {
   text-align: center;
   color: #2c3e50;
   position: center;
+  border: black;
 }
-
 #nav {
   padding: 30px;
   position: center;
+  border: black;
 }
-
 #nav h1 {
   font-weight: bold;
   color: #2c3e50;
   position: center;
+  border: black;
 }
-
 #nav router-link-exact-active {
   color: #2c3e50;
 }
-
 #nav table{
   position: center;
 }
-
-
 h1{
   color: darkgreen;
   text-align: center;
   position: center;
 }
-
-
-
-
-
-
 </style>
