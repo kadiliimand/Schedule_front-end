@@ -14,7 +14,7 @@
 </template>
 <script>
 let saveInJs = function () {
-  this.$http.post('http://localhost:8080/createEmployee', {}, {
+  this.$http.post('http://localhost:8080/public/createEmployee', {}, {
     params: {
       idNumber: this.idNumber,
       name: this.name,
@@ -35,7 +35,6 @@ export default {
     return {
       idNumber: '',
       name: '',
-      address: '',
       departmentCode: '',
       hourlyPay: '',
       salaryCode: '',

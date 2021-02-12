@@ -4,36 +4,35 @@
     <br><br>
     Insert name:<br><input v-model="name"><br>
     Choose start date:
-    <datepicker v-model="dateFrom"></datepicker>
-    Choose end date:
-    <datepicker v-model="dateTo"></datepicker>
+    <v-date-picker v-model="dateFrom"></v-date-picker>
+    Choose end date: {{dateTo}}
+    <v-date-picker v-model="dateTo"></v-date-picker>
     <br>
     <button v-on:click="getData()">Get schedule</button>
     <br><br>
 
 
-  <table border="2">
-    <tr>
+    <table border="1">
+      <tr>
 
-      <th>Date</th>
-      <th>Shift start</th>
-      <th>Shift end</th>
-      <th>Worked time</th>
+        <th>Date</th>
+        <th>Shift start</th>
+        <th>Shift end</th>
+        <th>Worked time</th>
 
-    </tr>
-    <tr v-for="row in schedule">
-      <td>{{ row.date }}</td>
-      <td>{{ row.startTime }}</td>
-      <td>{{ row.endTime }}</td>
-      <td>{{ row.workedTime }}</td>
+      </tr>
+      <tr v-for="row in schedule">
+        <td>{{ row.date }}</td>
+        <td>{{ row.startTime }}</td>
+        <td>{{ row.endTime }}</td>
+        <td>{{ row.workedHours }}</td>
 
-    </tr>
-  </table>
+      </tr>
+    </table>
   </div>
 
 </template>
 <script>
-import Datepicker from 'vuejs-datepicker';
 
 let getData = function () {
   this.$http.get('http://localhost:8080/public/getEmployeeScheduleData', {
@@ -49,12 +48,12 @@ let getData = function () {
 
 export default {
   name: 'MySchedule',
-  components: {Datepicker},
+  components: {},
   data: function () {
     return {
       name: '',
-      dateFrom: new Date(),
-      dateTo: new Date(),
+      dateFrom: '',
+      dateTo: '',
       schedule: {}
     }
   },

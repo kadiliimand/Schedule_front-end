@@ -28,7 +28,7 @@
 import Datepicker from "vuejs-datepicker";
 
 let getData = function () {
-  this.$http.get('http://localhost:8080/public/getAllEmployeesScheduleData', {
+  this.$http.get('http://localhost:8080/public/getAllEmployeesScheduleDataWithNames', {
     params: {
       dateFrom: this.dateFrom,
       dateTo: this.dateTo

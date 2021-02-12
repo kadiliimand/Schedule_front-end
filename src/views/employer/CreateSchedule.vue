@@ -23,13 +23,13 @@
           <th>Worked time</th>
         </tr>
         <tr v-for="row in schedule">
-          <td>{{ row.id }}</td>
+          <td>{{ row.whId }}</td>
           <td>{{ row.idNumber }}</td>
           <td>{{ row.name }}</td>
           <td>{{ row.date }}</td>
           <td>{{ row.startTime }}</td>
           <td>{{ row.endTime }}</td>
-          <td>{{ row.workedTime }}</td>
+          <td>{{ row.workedHours }}</td>
         </tr>
       </table>
 
@@ -70,7 +70,7 @@ let createShift = function () {
 }
 
 let getData = function () {
-  this.$http.get('http://localhost:8080/public/getScheduleData')
+  this.$http.get('http://localhost:8080/public/getScheduleDataWithNames')
       .then(response => this.schedule = response.data)
       .catch(response => console.log(response))
 }
