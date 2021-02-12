@@ -2,7 +2,6 @@
   <div>
     <h1>My schedule</h1>
     <br><br>
-    Insert name:<br><input v-model="name"><br>
     Choose start date:
     <v-date-picker v-model="dateFrom"></v-date-picker>
     Choose end date: {{dateTo}}
@@ -29,6 +28,7 @@
 
       </tr>
     </table>
+    {{schedule}}
   </div>
 
 </template>
