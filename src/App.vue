@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Login</router-link> |
+      <router-link to="/Login">Login</router-link> |
       <router-link to="/Employee">Employee</router-link> |
       <router-link to="/employee/MySchedule">My Schedule</router-link> |
       <router-link to="/employee/TeamSchedule">Team Schedule</router-link> |
@@ -35,6 +35,9 @@ export default {
   color: #2c3e50;
   position: center;
   border: black;
+  text-border-style: outset;
+  border: black;
+  outline: black;
 }
 #nav {
   padding: 30px;
@@ -58,4 +61,6 @@ h1{
   text-align: center;
   position: center;
 }
+
+
 </style>

@@ -2,13 +2,19 @@
   <div>
     <div>
       <h1>Create shift</h1>
-      Name: <input v-model="name" required><br>
-      Choose shift date:
-      <v-date-picker v-model="date" required></v-date-picker>
+      <v-col cols="10" sm="5">
+
+        <v-text-field label="name" outlined required></v-text-field>
+        <br>
+        Choose shift date:
+        <v-date-picker v-model="date" outlined required></v-date-picker>
+        <br>
+        <v-text-field label="startTime" placeholder="format 00:00" outlined required></v-text-field>
+        <br>
+        <v-text-field label="endTime" placeholder="format 00:00" outlined required></v-text-field>
+        <br></v-col>
+      <v-btn v-on:click="saveInHtml()">Save shift</v-btn>
       <br>
-      Schedule start time: <input v-model="startTime" placeholder="format 00:00" required><br>
-      Schedule end time: <input v-model="endTime" placeholder="format 00:00" required><br>
-      <button v-on:click="saveInHtml()">Save shift</button>
       <br>
       <br>
 
@@ -34,20 +40,33 @@
       </table>
 
       <h1>Change shift</h1>
-      Shift id: <input v-model="id" required><br>
-      Name: <input v-model="name" required><br>
-      Choose shift date:
-      <datepicker v-model="date" required></datepicker>
-      <br>
-      Schedule start time: <input v-model="startTime" placeholder="format 00:00" required><br>
-      Schedule end time: <input v-model="endTime" placeholder="format 00:00" required><br>
-      <button v-on:click="saveInHtml()">Change shift</button>
-      <br>
+      <v-col cols="10" sm="5">
+
+        <v-text-field label="id" outlined required></v-text-field>
+        <br>
+        <v-text-field label="name" outlined required></v-text-field>
+        <br>
+        Choose shift date: {{ date }}
+        <v-date-picker v-model="date" required></v-date-picker>
+        <br>
+        <v-text-field label="startTime" placeholder="format 00:00" outlined required></v-text-field>
+        <br>
+        <v-text-field label="endTime" placeholder="format 00:00" outlined required></v-text-field>
+        <br></v-col>
+      <v-btn v-on:click="saveInHtml()">Change shift</v-btn>
+      <br><br><br>
 
       <h1>Delete shift</h1>
-      Shift id: <input v-model="id" required><br>
-      <button v-on:click="saveInHtml()">Delete shift</button>
-      <br>
+      <v-col cols="10" sm="5">
+
+        <v-text-field label="id" outlined required></v-text-field>
+        <br>
+      </v-col>
+      <v-btn v-on:click="saveInHtml()">Delete shift</v-btn>
+      <br><br><br><br><br>
+      <v-btn to="/Employer" outlined>Back</v-btn>
+      <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
+
 
     </div>
   </div>

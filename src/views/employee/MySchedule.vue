@@ -2,12 +2,15 @@
   <div>
     <h1>My schedule</h1>
     <br><br>
-    Choose start date:
+      <v-col cols="10" sm="5">
+        <v-text-field v-model="name" label="Insert name" outlined></v-text-field>
+    Choose start date: {{ dateFrom }}
     <v-date-picker v-model="dateFrom"></v-date-picker>
-    Choose end date: {{dateTo}}
+    Choose end date: {{ dateTo }}
     <v-date-picker v-model="dateTo"></v-date-picker>
+      </v-col>
     <br>
-    <button v-on:click="getData()">Get schedule</button>
+    <v-btn v-on:click="getData()" outlined>Get schedule</v-btn>
     <br><br>
 
 
@@ -28,7 +31,10 @@
 
       </tr>
     </table>
-    {{schedule}}
+    <br><br><br><br>
+    <v-btn to="/Employee" outlined>Back</v-btn>
+    <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
+
   </div>
 
 </template>
@@ -45,6 +51,10 @@ let getData = function () {
       .then(response => this.schedule = response.data)
       .catch(error => this.schedule = error.response.data.message);
 }
+let logout = function () {
+  localStorage.removeItem('user-token')
+}
+
 
 export default {
   name: 'MySchedule',
@@ -60,6 +70,7 @@ export default {
 
   methods: {
     getData: getData,
+    logout: logout
   },
   mounted() {
     this.getData();

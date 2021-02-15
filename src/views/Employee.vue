@@ -1,11 +1,11 @@
 <template>
   <div>
 
-    <router-link to="/employee/mySchedule">My Schedule</router-link>
+    <v-btn to="/employee/mySchedule" outlined>My Schedule</v-btn>
     <br><br>
-    <router-link to="/employee/teamSchedule">Team Schedule</router-link>
+    <v-btn to="/employee/teamSchedule" outlined>Team Schedule</v-btn>
     <br><br>
-    <button v-on:click="saveInHtml()">Logout!</button>
+    <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
   </div>
 </template>
 <script>
@@ -18,11 +18,10 @@ export default {
   },
 
   methods: {
-    saveInHtml: logout
+    logout: logout
 
   }
 }
-
 
 </script>
 <style scoped></style>

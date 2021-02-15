@@ -16,17 +16,20 @@
         <th>Department code</th>
       </tr>
       <tr v-for="row in answer">
-        <td>{{row.idNumber}}</td>
-        <td>{{row.salaryCode}}</td>
-        <td>{{row.hourlyPay}}</td>
-        <td>{{row.workedHours}}</td>
+        <td>{{ row.idNumber }}</td>
+        <td>{{ row.salaryCode }}</td>
+        <td>{{ row.hourlyPay }}</td>
+        <td>{{ row.workedHours }}</td>
         <td></td>
-        <td>{{row.departmentCode}}</td>
+        <td>{{ row.departmentCode }}</td>
 
       </tr>
 
     </table>
-    {{answer}}
+    <br><br><br><br>
+    <v-btn to="/Employer" outlined>Back</v-btn>
+    <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
+
   </div>
 </template>
 <script>

@@ -1,50 +1,59 @@
-<!--<template>-->
-<!--  <div class="home">-->
+<template>
+  <div class="home">
 
-<!--    <h1>Employee login</h1>-->
-<!--    Id number:<input v-model="idNumber"><br>-->
-<!--    Password:<input v-model="password"><br><br>-->
-<!--    <router-link to="/Employee"  v-on:click="login()">Login</router-link>-->
-<!--    <br>-->
-<!--    <br>-->
-<!--    <br>-->
+    <h1>Employee login</h1>
+    <v-col cols="10" sm="5">
+      <v-text-field v-model="idNumber" label="Id number" outlined></v-text-field>
+      <br>
+      <v-text-field v-model="password" label="Password" outlined></v-text-field>
+      <br><br>
+    </v-col>
+    <v-btn to="/Employee" v-on:click="login()" outlined>Login</v-btn>
+    <br>
+    <br>
+    <br>
 
-<!--        <h1>Employer login</h1>-->
-<!--        Id number:<input v-model="idNumber"><br>-->
-<!--        Password:<input v-model="password"><br><br>-->
-<!--    <router-link to="/Employer" v-on:click="login()">Login</router-link>-->
+    <h1>Employer login</h1>
+    <v-col cols="10" sm="5">
 
-<!--  </div>-->
+      <v-text-field v-model="idNumber" label="Id number" outlined></v-text-field>
+      <br>
+      <v-text-field v-model="password" label="Password" outlined></v-text-field>
+      <br><br>
+    </v-col>
+    <v-btn to="/Employer" v-on:click="login()" outlined>Login</v-btn>
 
-<!--</template>-->
-<!--<script>-->
-<!--let login = function () {-->
-<!--  localStorage.removeItem('user-token');-->
-<!--  this.$http.post('http://localhost:8080/public/login', {}, {-->
-<!--    params: {-->
-<!--      idNumber: this.idNumber,-->
-<!--      password: this.password-->
-<!--    }-->
-<!--  })-->
-<!--      .then(response => {-->
-<!--        alert(response.data);-->
-<!--        let token = response.data;-->
-<!--        localStorage.setItem('user-token', token)-->
-<!--        this.$http.defaults.headers.common['Authorization'] = "Bearer " + token-->
-<!--      })-->
-<!--}-->
-<!--export default {-->
-<!--  name: 'Login',-->
-<!--  components: {},-->
-<!--  data: function () {-->
-<!--    return {-->
-<!--      idNumber: '',-->
-<!--      password: ''-->
-<!--    }-->
-<!--  },-->
-<!--  methods: {-->
-<!--    login: login,-->
-<!--  }-->
-<!--}-->
-<!--</script>-->
-<!--<style scoped></style>-->
+  </div>
+
+</template>
+<script>
+let login = function () {
+  localStorage.removeItem('user-token');
+  this.$http.post('http://localhost:8080/public/login', {}, {
+    params: {
+      idNumber: this.idNumber,
+      password: this.password
+    }
+  })
+      .then(response => {
+        alert(response.data);
+        let token = response.data;
+        localStorage.setItem('user-token', token)
+        this.$http.defaults.headers.common['Authorization'] = "Bearer " + token
+      })
+}
+export default {
+  name: 'Login',
+  components: {},
+  data: function () {
+    return {
+      idNumber: '',
+      password: ''
+    }
+  },
+  methods: {
+    login: login,
+  }
+}
+</script>
+<style scoped></style>

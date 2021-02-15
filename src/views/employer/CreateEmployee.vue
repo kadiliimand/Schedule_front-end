@@ -1,14 +1,27 @@
 <template>
   <div class="Employer">
     <h1>Create new employee</h1>
-    Id number:<input v-model="idNumber" required><br>
-    Name:<input v-model="name" required><br>
-    Department:<input v-model="departmentCode" required><br>
-    Hourly pay:<input v-model="hourlyPay" required><br>
-    Salary code: <input v-model="salaryCode" required><br>
-    Password:<input v-model="password" required><br>
-    <button v-on:click="saveInHtml()">Save employee</button><br><br>
-    <b>{{answer}}</b>
+    <v-col cols="10" sm="5">
+
+    <v-text-field v-model="idNumber" label="Id number" outlined required></v-text-field>
+    <br>
+    <v-text-field v-model="name" label="Employee name" outlined required></v-text-field>
+    <br>
+    <v-text-field v-model="departmentCode" label="Department code" outlined required></v-text-field>
+    <br>
+    <v-text-field v-model="hourlyPay" label="Hourly pay" outlined required></v-text-field>
+    <br>
+    <v-text-field v-model="salaryCode" label="Salary code" outlined required></v-text-field>
+    <br>
+    <v-text-field v-model="password" label="Password" outlined required></v-text-field>
+    <br>
+    </v-col>
+    <v-btn v-on:click="saveInHtml()" outlined>Save employee</v-btn>
+    <br><br>
+    <b>{{ answer }}</b>
+    <v-btn to="/Employer" outlined>Back</v-btn>
+    <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
+
   </div>
 
 </template>

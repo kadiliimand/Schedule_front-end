@@ -4,49 +4,29 @@
     <v-date-picker v-model="dateFrom"></v-date-picker>
     Choose end date:
     <v-date-picker v-model="dateTo"></v-date-picker>
-    <button v-on:click="getNames()">Get schedule</button>
+    <v-btn v-on:click="getShifts()" outlined>Get schedule</v-btn>
     <table border="1">
       <tr>
         <th>Date</th>
-        <th colspan="2">Katrin Kutti</th>
-        <th colspan="2">Kadi Liimand</th>
-        <th colspan="2">Gunnar Mäemets</th>
-        <th colspan="2">Teine Nimi</th>
+        <th v-for="row in schedule" colspan="2">{{ row.name }}</th>
+      <tr v-for="row in schedule">
+        <td>{{ row.date }}</td>
+        <td>{{ row.startTime }}</td>
+        <td>{{ row.endTime }}</td>
 
-
-      </tr>
-      <tr>
-        <td rowspan="2">01.01.2021</td>
-        <td>Shift start Time</td>
-        <td>Shift end time</td>
-        <td>Shift start Time</td>
-        <td>Shift end time</td>
-        <td>Shift start Time</td>
-        <td>Shift end time</td>
-        <td>Shift start Time</td>
-        <td>Shift end time</td>
-
-      </tr>
-      <tr>
-        <td>10:00</td>
-        <td>20:00</td>
-        <td>09:00</td>
-        <td>18:00</td>
       </tr>
     </table>
+    <br><br><br><br>
+    <v-btn to="/Employer" outlined>Back</v-btn>
+    <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
+
   </div>
 </template>
 
 <script>
 
-let getNames = function () {
-  this.$http.get('http://localhost:8080/public/getAllEmployeesNames')
-      .then(response => this.employees = response.data)
-      .catch(response => console.log(response))
-}
-
 let getShifts = function () {
-  this.$http.get('http://localhost:8080/public/getScheduleDataWithNames', {
+  this.$http.get('http://localhost:8080/public/getAllEmployeesScheduleDataWithNames', {
     params: {
       dateFrom: this.dateFrom,
       dateTo: this.dateTo
@@ -60,13 +40,11 @@ export default {
   components: {},
   data: function () {
     return {
-      employees: {},
       schedule: {}
     }
   },
 
   methods: {
-    getNames: getNames,
     getShifts: getShifts
   },
 

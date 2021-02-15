@@ -1,5 +1,6 @@
 <template>
   <div>
+    <v-btn v-on:click="getData" outlined>Get Employee Data</v-btn>
     <table border="1">
       <tr>
         <th>Id</th>
@@ -8,7 +9,6 @@
         <th>Department code</th>
         <th>Hourly pay</th>
         <th>Salary code</th>
-        <th>password</th>
 
       </tr>
       <tr v-for="row in employee">
@@ -18,9 +18,12 @@
         <td>{{ row.departmentCode }}</td>
         <td>{{ row.hourlyPay }}</td>
         <td>{{ row.salaryCode }}</td>
-        <td>{{ row.password }}</td>
       </tr>
     </table>
+    <br><br><br><br>
+    <v-btn to="/Employer" outlined>Back</v-btn>
+    <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
+
   </div>
 </template>
 
@@ -43,9 +46,9 @@ export default {
     getData: getData
   },
 
-  mounted() {
-    this.getData();
-  }
+  // mounted() {
+  //   this.getData();
+  // }
 }
 
 </script>
