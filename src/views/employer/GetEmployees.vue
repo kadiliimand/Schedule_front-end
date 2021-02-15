@@ -1,6 +1,8 @@
 <template>
   <div>
+    <v-col cols="10" sm="5">
     <v-btn v-on:click="getData" outlined>Get Employee Data</v-btn>
+      <br><br><br><br>
     <table border="1">
       <tr>
         <th>Id</th>
@@ -20,6 +22,7 @@
         <td>{{ row.salaryCode }}</td>
       </tr>
     </table>
+    </v-col>
     <br><br><br><br>
     <v-btn to="/Employer" outlined>Back</v-btn>
     <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>

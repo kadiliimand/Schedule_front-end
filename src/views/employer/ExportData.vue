@@ -1,11 +1,13 @@
 <template>
   <div>
+    <v-col cols="10" sm="5">
+
     Choose start date:
     <v-date-picker v-model="dateFrom"></v-date-picker>
     Choose end date:
     <v-date-picker v-model="dateTo"></v-date-picker>
-    <button v-on:click="exportData()">Export data</button>
-
+    <v-btn v-on:click="exportData()" outlined>Export data</v-btn>
+<br><br>
     <table border="1">
       <tr>
         <th>Id number</th>
@@ -29,7 +31,7 @@
     <br><br><br><br>
     <v-btn to="/Employer" outlined>Back</v-btn>
     <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
-
+    </v-col>
   </div>
 </template>
 <script>

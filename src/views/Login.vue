@@ -1,28 +1,29 @@
 <template>
   <div class="home">
-
-    <h1>Employee login</h1>
     <v-col cols="10" sm="5">
+      <br><br>
+      <h1>Employee login</h1>
+      <br><br>
       <v-text-field v-model="idNumber" label="Id number" outlined></v-text-field>
       <br>
       <v-text-field v-model="password" label="Password" outlined></v-text-field>
       <br><br>
-    </v-col>
-    <v-btn to="/Employee" v-on:click="login()" outlined>Login</v-btn>
-    <br>
-    <br>
-    <br>
 
-    <h1>Employer login</h1>
-    <v-col cols="10" sm="5">
+      <v-btn to="/Employee" v-on:click="login()" outlined>Login</v-btn>
+      <br>
+      <br>
+      <br>
+
+      <h1>Employer login</h1>
+      <br><br>
 
       <v-text-field v-model="idNumber" label="Id number" outlined></v-text-field>
       <br>
       <v-text-field v-model="password" label="Password" outlined></v-text-field>
       <br><br>
-    </v-col>
-    <v-btn to="/Employer" v-on:click="login()" outlined>Login</v-btn>
 
+      <v-btn to="/Employer" v-on:click="login()" outlined>Login</v-btn>
+    </v-col>
   </div>
 
 </template>

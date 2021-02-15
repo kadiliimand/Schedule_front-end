@@ -1,8 +1,9 @@
 <template>
   <div>
     <div>
-      <h1>Create shift</h1>
       <v-col cols="10" sm="5">
+      <h1>Create shift</h1>
+<br><br>
 
         <v-text-field label="name" outlined required></v-text-field>
         <br>
@@ -12,7 +13,7 @@
         <v-text-field label="startTime" placeholder="format 00:00" outlined required></v-text-field>
         <br>
         <v-text-field label="endTime" placeholder="format 00:00" outlined required></v-text-field>
-        <br></v-col>
+        <br>
       <v-btn v-on:click="saveInHtml()">Save shift</v-btn>
       <br>
       <br>
@@ -38,9 +39,9 @@
           <td>{{ row.workedHours }}</td>
         </tr>
       </table>
-
+<br><br>
       <h1>Change shift</h1>
-      <v-col cols="10" sm="5">
+<br><br>
 
         <v-text-field label="id" outlined required></v-text-field>
         <br>
@@ -52,24 +53,23 @@
         <v-text-field label="startTime" placeholder="format 00:00" outlined required></v-text-field>
         <br>
         <v-text-field label="endTime" placeholder="format 00:00" outlined required></v-text-field>
-        <br></v-col>
+        <br>
       <v-btn v-on:click="saveInHtml()">Change shift</v-btn>
       <br><br><br>
 
       <h1>Delete shift</h1>
-      <v-col cols="10" sm="5">
+
 
         <v-text-field label="id" outlined required></v-text-field>
         <br>
-      </v-col>
+
       <v-btn v-on:click="saveInHtml()">Delete shift</v-btn>
-      <br><br><br><br><br>
+      </v-col>
+      <br><br><br><br>
       <v-btn to="/Employer" outlined>Back</v-btn>
       <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
-
-
     </div>
-  </div>
+    </div>
 </template>
 <script>
 

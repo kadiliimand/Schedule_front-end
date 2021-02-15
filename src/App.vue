@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/Login">Login</router-link> |
-      <router-link to="/Employee">Employee</router-link> |
-      <router-link to="/employee/MySchedule">My Schedule</router-link> |
-      <router-link to="/employee/TeamSchedule">Team Schedule</router-link> |
-      <router-link to="/Employer">Employer</router-link> |
-      <router-link to="/Employer/CreateEmployee">Create Employee</router-link> |
-      <router-link to="/Employer/GetEmployees">Get Employees</router-link> |
-      <router-link to="/Employer/CreateSchedule">Create Schedule</router-link> |
-      <router-link to="/Employer/GetSchedule">Get Schedule</router-link> |
-      <router-link to="/Employer/ExportData">Export Data</router-link> |
+      <v-btn to="/Login" outlined>Login</v-btn> |
+      <v-btn to="/Employee" outlined>Employee</v-btn> |
+      <v-btn to="/employee/MySchedule" outlined>My Schedule</v-btn> |
+      <v-btn to="/employee/TeamSchedule" outlined>Team Schedule</v-btn> |
+      <v-btn to="/Employer" outlined>Employer</v-btn> |
+      <v-btn to="/Employer/CreateEmployee" outlined>Create Employee</v-btn> |
+      <v-btn to="/Employer/CreateSchedule" outlined>Create Schedule</v-btn> |
+      <v-btn to="/Employer/GetEmployees" outlined>Get Employees</v-btn> |
+      <v-btn to="/Employer/GetSchedule" outlined>Get Schedule</v-btn> |
+      <v-btn to="/Employer/ExportData" outlined>Export Data</v-btn> |
     </div>
     <router-view/>
   </div>

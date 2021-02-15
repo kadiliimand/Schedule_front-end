@@ -1,24 +1,49 @@
 <template>
   <div class="Employer">
-    <h1>Create new employee</h1>
     <v-col cols="10" sm="5">
+      <br><br>
+      <h1>Create new employee</h1>
+      <br><br>
 
-    <v-text-field v-model="idNumber" label="Id number" outlined required></v-text-field>
-    <br>
-    <v-text-field v-model="name" label="Employee name" outlined required></v-text-field>
-    <br>
-    <v-text-field v-model="departmentCode" label="Department code" outlined required></v-text-field>
-    <br>
-    <v-text-field v-model="hourlyPay" label="Hourly pay" outlined required></v-text-field>
-    <br>
-    <v-text-field v-model="salaryCode" label="Salary code" outlined required></v-text-field>
-    <br>
-    <v-text-field v-model="password" label="Password" outlined required></v-text-field>
-    <br>
+      <v-text-field v-model="idNumber" label="Id number" outlined required></v-text-field>
+      <br>
+      <v-text-field v-model="name" label="Employee name" outlined required></v-text-field>
+      <br>
+      <v-text-field v-model="departmentCode" label="Department code" outlined required></v-text-field>
+      <br>
+      <v-text-field v-model="hourlyPay" label="Hourly pay" outlined required></v-text-field>
+      <br>
+      <v-text-field v-model="salaryCode" label="Salary code" outlined required></v-text-field>
+      <br>
+      <v-text-field v-model="password" label="Password" outlined required></v-text-field>
+      <br>
+
+      <v-btn v-on:click="createEmployee()" outlined>Save employee</v-btn>
+      <br><br><br><br>
+
+
+      <h1>Update Employee Data</h1>
+      <br><br>
+
+      <v-text-field v-model="id" label="Employee id" outlined required></v-text-field>
+      <br>
+      <v-text-field v-model="name" label="Name" outlined required></v-text-field>
+      <br>
+      <v-text-field v-model="idNumber" label="Id number" outlined required></v-text-field>
+      <br>
+      <v-text-field v-model="departmentCode" label="Department code" outlined required></v-text-field>
+      <br>
+      <v-text-field v-model="hourlyPay" label="Hourly pay" outlined required></v-text-field>
+      <br>
+      <v-text-field v-model="salaryCode" label="Salary code" outlined required></v-text-field>
+      <br>
+      <v-text-field v-model="password" label="Password" outlined required></v-text-field>
+      <br>
+      <v-btn v-on:click="updateEmployee()" outlined>Update</v-btn>
+      <br><br><br>
+
     </v-col>
-    <v-btn v-on:click="saveInHtml()" outlined>Save employee</v-btn>
-    <br><br>
-    <b>{{ answer }}</b>
+    <br><br><br><br>
     <v-btn to="/Employer" outlined>Back</v-btn>
     <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
 
@@ -26,9 +51,24 @@
 
 </template>
 <script>
-let saveInJs = function () {
+let createEmployee = function () {
   this.$http.post('http://localhost:8080/public/createEmployee', {}, {
     params: {
+      idNumber: this.idNumber,
+      name: this.name,
+      departmentCode: this.departmentCode,
+      hourlyPay: this.hourlyPay,
+      salaryCode: this.salaryCode,
+      password: this.password
+    }
+  })
+      .then(response => this.answer = response.data)
+      .catch(response => console.log(response.data))
+}
+let updateEmployee = function () {
+  this.$http.put('http://localhost:8080/public/updateEmployeeData', {}, {
+    params: {
+      id: this.id,
       idNumber: this.idNumber,
       name: this.name,
       departmentCode: this.departmentCode,
@@ -52,11 +92,12 @@ export default {
       hourlyPay: '',
       salaryCode: '',
       password: '',
-      answer: ''
+      answer: 'Computer Says YES'
     }
   },
   methods: {
-    saveInHtml: saveInJs
+    createEmployee: createEmployee,
+    updateEmployee: updateEmployee
   }
 }
 </script>

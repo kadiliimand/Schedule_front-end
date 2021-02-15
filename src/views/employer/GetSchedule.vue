@@ -1,10 +1,12 @@
 <template>
-  <div>
-    Choose start date:
+  <div>      <v-col cols="10" sm="5">
+
+  Choose start date:
     <v-date-picker v-model="dateFrom"></v-date-picker>
     Choose end date:
     <v-date-picker v-model="dateTo"></v-date-picker>
     <v-btn v-on:click="getShifts()" outlined>Get schedule</v-btn>
+    <br><br>
     <table border="1">
       <tr>
         <th>Date</th>
@@ -17,6 +19,7 @@
       </tr>
     </table>
     <br><br><br><br>
+  </v-col>
     <v-btn to="/Employer" outlined>Back</v-btn>
     <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
 

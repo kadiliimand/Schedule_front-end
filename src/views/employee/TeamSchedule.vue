@@ -5,23 +5,26 @@
       <v-date-picker v-model="dateFrom" outlined></v-date-picker>
       Choose end date:
       <v-date-picker v-model="dateTo"></v-date-picker>
-    </v-col>
-    <v-btn v-on:click="getData()" outlined>Get team schedule</v-btn>
-    <table border="2">
-      <tr>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Shift start time</th>
-        <th>Shift end time</th>
 
-      </tr>
-      <tr v-for="row in schedule">
-        <td>{{ row.name }}</td>
-        <td>{{ row.date }}</td>
-        <td>{{ row.startTime }}</td>
-        <td>{{ row.endTime }}</td>
-      </tr>
-    </table>
+      <v-btn v-on:click="getData()" outlined>Get team schedule</v-btn>
+      <br><br><br><br>
+      <table border="2">
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Shift start time</th>
+          <th>Shift end time</th>
+
+        </tr>
+        <tr v-for="row in schedule">
+          <td>{{ row.name }}</td>
+          <td>{{ row.date }}</td>
+          <td>{{ row.startTime }}</td>
+          <td>{{ row.endTime }}</td>
+        </tr>
+      </table>
+
+    </v-col>
     <br><br><br><br>
     <v-btn to="/Employee" outlined>Back</v-btn>
     <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
