@@ -13,8 +13,6 @@
       <br>
       <v-text-field v-model="hourlyPay" label="Hourly pay" outlined required></v-text-field>
       <br>
-      <v-text-field v-model="salaryCode" label="Salary code" outlined required></v-text-field>
-      <br>
       <v-text-field v-model="password" label="Password" outlined required></v-text-field>
       <br>
 
@@ -34,8 +32,6 @@
       <v-text-field v-model="departmentCode" label="Department code" outlined required></v-text-field>
       <br>
       <v-text-field v-model="hourlyPay" label="Hourly pay" outlined required></v-text-field>
-      <br>
-      <v-text-field v-model="salaryCode" label="Salary code" outlined required></v-text-field>
       <br>
       <v-text-field v-model="password" label="Password" outlined required></v-text-field>
       <br>
@@ -58,7 +54,6 @@ let createEmployee = function () {
       name: this.name,
       departmentCode: this.departmentCode,
       hourlyPay: this.hourlyPay,
-      salaryCode: this.salaryCode,
       password: this.password
     }
   })
@@ -73,7 +68,6 @@ let updateEmployee = function () {
       name: this.name,
       departmentCode: this.departmentCode,
       hourlyPay: this.hourlyPay,
-      salaryCode: this.salaryCode,
       password: this.password
     }
   })
@@ -90,7 +84,6 @@ export default {
       name: '',
       departmentCode: '',
       hourlyPay: '',
-      salaryCode: '',
       password: '',
       answer: 'Computer Says YES'
     }

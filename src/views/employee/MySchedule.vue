@@ -14,7 +14,7 @@
       <br>
       <v-btn v-on:click="getData()" outlined>Get schedule</v-btn>
       <br><br><br><br>
-
+    </v-col>
 
       <table border="1">
         <tr>
@@ -34,7 +34,6 @@
         </tr>
       </table>
       <br><br><br><br>
-    </v-col>
     <v-btn to="/Employee" outlined>Back</v-btn>
     <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
 
