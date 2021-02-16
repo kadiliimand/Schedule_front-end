@@ -31,7 +31,7 @@
     </v-col>
     <v-btn to="/Employer" outlined>Back</v-btn>
     <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
-    {{schedule}}
+ 
   </div>
 </template>
 
