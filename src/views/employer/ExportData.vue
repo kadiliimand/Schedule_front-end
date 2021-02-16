@@ -38,15 +38,16 @@
 
 let exportData = function () {
   this.$http.get(this.$host +'/public/exportData', {params: {dateFrom: this.dateFrom, dateTo: this.dateTo}})
-      .then(response => this.answer = response.data)
-      .catch(response => console.log(response))
+      .then(response => this.export = response.data)
+      .catch(error => this.answer = alert(error.response.data.message))
 }
 export default {
   name: "ExportData",
   components: {},
   data: function () {
     return {
-      answer: {}
+      export: {},
+
     }
   },
 
@@ -54,9 +55,9 @@ export default {
     exportData: exportData
   },
 
-  mounted() {
-    this.exportData();
-  }
+  // mounted() {
+  //   this.exportData();
+  // }
 }
 
 </script>

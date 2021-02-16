@@ -34,14 +34,15 @@
 let getData = function () {
   this.$http.get(this.$host +'/public/getAllEmployeesData')
       .then(response => this.employee = response.data)
-      .catch(response => console.log(response))
+      .catch(error => this.answer = alert(error.response.data.message))
 }
 export default {
   name: "GetEmployees",
   components: {},
   data: function () {
     return {
-      employee: {}
+      employee: {},
+
     }
   },
 

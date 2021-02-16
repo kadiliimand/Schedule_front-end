@@ -57,8 +57,8 @@ let createEmployee = function () {
       password: this.password
     }
   })
-      .then(response => this.answer = response.data)
-      .catch(response => console.log(response.data))
+      .then(response => this.create = response.data)
+      .catch(error => this.answer = alert(error.response.data.message))
 }
 let updateEmployee = function () {
   this.$http.put(this.$host +'/public/updateEmployeeData', {}, {
@@ -71,8 +71,8 @@ let updateEmployee = function () {
       password: this.password
     }
   })
-      .then(response => this.answer = response.data)
-      .catch(response => console.log(response.data))
+      .then(response => this.update = response.data)
+      .catch(error => this.answer = alert(error.response.data.message))
 }
 
 export default {
@@ -86,8 +86,9 @@ export default {
       departmentCode: '',
       hourlyPay: '',
       password: '',
-      answer: 'Computer Says YES'
-    }
+      create: 'Employee created',
+      update: 'Employee updated',
+        }
   },
   methods: {
     createEmployee: createEmployee,

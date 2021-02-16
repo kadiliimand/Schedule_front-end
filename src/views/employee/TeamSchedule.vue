@@ -42,7 +42,7 @@ let getData = function () {
     }
   })
       .then(response => this.schedule = response.data)
-      .catch(response => console.log(response))
+      .catch(error => this.answer = alert(error.response.data.message))
 }
 let logout = function () {
   localStorage.removeItem('user-token')
@@ -55,7 +55,8 @@ export default {
     return {
       dateFrom: '',
       dateTo: '',
-      schedule: {}
+      schedule: {},
+
     }
   },
 

@@ -36,8 +36,7 @@ let login = function () {
       password: this.password
     }
   })
-      .then(response => {
-        alert(response.data);
+      .then(response => {alert(response.data);
         let token = response.data;
         localStorage.setItem('user-token', token)
         this.$http.defaults.headers.common['Authorization'] = "Bearer " + token
