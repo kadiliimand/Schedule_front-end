@@ -14,8 +14,6 @@ let logout = function () {
 }
 export default {
   name: 'Logout',
-  data: function () {
-  },
 
   methods: {
     logout: logout

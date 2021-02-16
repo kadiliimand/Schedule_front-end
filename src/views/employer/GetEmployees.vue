@@ -32,7 +32,7 @@
 
 <script>
 let getData = function () {
-  this.$http.get('http://localhost:8080/public/getAllEmployeesData')
+  this.$http.get(this.$host +'/public/getAllEmployeesData')
       .then(response => this.employee = response.data)
       .catch(response => console.log(response))
 }

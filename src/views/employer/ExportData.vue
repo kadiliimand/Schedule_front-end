@@ -37,7 +37,7 @@
 <script>
 
 let exportData = function () {
-  this.$http.get('http://localhost:8080/public/exportData', {params: {dateFrom: this.dateFrom, dateTo: this.dateTo}})
+  this.$http.get(this.$host +'/public/exportData', {params: {dateFrom: this.dateFrom, dateTo: this.dateTo}})
       .then(response => this.answer = response.data)
       .catch(response => console.log(response))
 }

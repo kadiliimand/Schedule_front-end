@@ -30,7 +30,7 @@
 <script>
 let login = function () {
   localStorage.removeItem('user-token');
-  this.$http.post('http://localhost:8080/public/login', {}, {
+  this.$http.post(this.$host +'/public/login', {}, {
     params: {
       idNumber: this.idNumber,
       password: this.password

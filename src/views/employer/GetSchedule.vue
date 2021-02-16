@@ -6,12 +6,12 @@
       <v-date-picker v-model="dateFrom"></v-date-picker>
       Choose end date: {{ dateTo }}
       <v-date-picker v-model="dateTo"></v-date-picker>
-      <v-btn v-on:click="getShifts()" outlined>Get schedule</v-btn>
+      <v-btn v-on:click="getAllData()" outlined>Get schedule</v-btn>
       <br><br>
       <table border="1">
         <tr>
           <th>Date</th>
-          <th v-for="row in schedule" colspan="2">{{ row.name }}</th>
+          <th v-for="row in names" colspan="2">{{ row.name }}</th>
         <tr v-for="row in schedule">
           <td>{{ row.date }}</td>
           <td>{{ row.startTime }}</td>
@@ -28,8 +28,12 @@
 
 <script>
 
-let getShifts = function () {
-  this.$http.get('http://localhost:8080/public/getAllEmployeesScheduleDataWithNames', {
+let getAllData = function () {
+  this.$http.get(this.$host +'/public/getAllEmployeesNames')
+      .then(response => this.names = response.data)
+      .catch(response => console.log(response))
+
+  this.$http.get(this.$host +'/public/getAllEmployeesScheduleDataWithNames', {
     params: {
       dateFrom: this.dateFrom,
       dateTo: this.dateTo
@@ -38,22 +42,29 @@ let getShifts = function () {
       .then(response => this.schedule = response.data)
       .catch(response => console.log(response))
 }
+
+let logout = function () {
+  localStorage.removeItem('user-token')
+
+
+}
 export default {
   name: "GetSchedule",
   components: {},
   data: function () {
     return {
+      dateFrom: '',
+      dateTo: '',
+      names: {},
       schedule: {}
     }
   },
 
   methods: {
-    getShifts: getShifts
+    getAllData: getAllData,
+    logout: logout
   },
 
-  mounted() {
-    this.getData();
-  }
 }
 
 </script>

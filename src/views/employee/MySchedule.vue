@@ -43,7 +43,7 @@
 <script>
 
 let getData = function () {
-  this.$http.get('http://localhost:8080/public/getEmployeeScheduleData', {
+  this.$http.get(this.$host +'/public/getEmployeeScheduleData', {
     params: {
       name: this.name,
       dateFrom: this.dateFrom,

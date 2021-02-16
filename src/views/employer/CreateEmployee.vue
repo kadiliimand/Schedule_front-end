@@ -48,7 +48,7 @@
 </template>
 <script>
 let createEmployee = function () {
-  this.$http.post('http://localhost:8080/public/createEmployee', {}, {
+  this.$http.post(this.$host +'/public/createEmployee', {}, {
     params: {
       idNumber: this.idNumber,
       name: this.name,
@@ -61,7 +61,7 @@ let createEmployee = function () {
       .catch(response => console.log(response.data))
 }
 let updateEmployee = function () {
-  this.$http.put('http://localhost:8080/public/updateEmployeeData', {}, {
+  this.$http.put(this.$host +'/public/updateEmployeeData', {}, {
     params: {
       id: this.id,
       idNumber: this.idNumber,
@@ -80,6 +80,7 @@ export default {
   components: {},
   data: function () {
     return {
+      id: '',
       idNumber: '',
       name: '',
       departmentCode: '',
