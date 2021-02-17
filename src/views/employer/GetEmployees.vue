@@ -10,7 +10,6 @@
         <th>Id number</th>
         <th>Department code</th>
         <th>Hourly pay</th>
-        <th>Salary code</th>
 
       </tr>
       <tr v-for="row in employee">
@@ -19,13 +18,13 @@
         <td>{{ row.idNumber }}</td>
         <td>{{ row.departmentCode }}</td>
         <td>{{ row.hourlyPay }}</td>
-        <td>{{ row.salaryCode }}</td>
       </tr>
     </table>
     </v-col>
     <br><br><br><br>
     <v-btn to="/Employer" outlined>Back</v-btn>
     <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
+    <br><br><br><br>
 
   </div>
 </template>

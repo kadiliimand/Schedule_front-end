@@ -8,7 +8,7 @@
 
         <v-text-field v-model="name" label="Employee name" outlined required></v-text-field>
         <br>
-        Choose shift date: {{ date }}
+        Choose shift date: {{date}}
         <v-date-picker v-model="date" required></v-date-picker>
         <br>
         <v-text-field v-model="startTime" label="Shift start time" placeholder="format 00:00" outlined
@@ -54,11 +54,14 @@
         <br>
 
         <v-btn v-on:click="deleteShift()">Delete shift</v-btn>
+
       </v-col>
       <br><br><br><br>
       <v-btn to="/Employer" outlined>Back</v-btn>
       <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
     </div>
+    <br><br><br><br>
+
   </div>
 </template>
 <script>
@@ -71,10 +74,9 @@ let createShift = function () {
       startTime: this.startTime,
       endTime: this.endTime,
       salaryCode: this.salaryCode
-
     }
   })
-      .then(response => this.created = response.data)
+      .then(response => this.created = alert(response.data))
       .catch(error => this.answer = alert(error.response.data.message))
 }
 
@@ -91,7 +93,7 @@ let changeShift = function () {
       answer: 'Shift changed'
     }
   })
-      .then(response => this.changed = response.data)
+      .then(response => this.changed = alert(response.data))
       .catch(error => this.answer = alert(error.response.data.message))
 }
 
@@ -101,7 +103,7 @@ let deleteShift = function () {
       id: this.id
     }
   })
-      .then(response => this.deleted = response.data)
+      .then(response => this.deleted = alert(response.data))
       .catch(error => this.answer = alert(error.response.data.message))
 }
 
@@ -110,9 +112,9 @@ export default {
   components: {},
   data: function () {
     return {
-      created: 'Shift created',
-      changed: 'Shift changed',
-      deleted: 'Shift deleted',
+      created: '',
+      changed: '',
+      deleted: '',
       schedule: {}
     }
   },

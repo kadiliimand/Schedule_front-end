@@ -12,6 +12,7 @@
     <v-btn to="/employer/exportData" outlined>Export Data</v-btn>
     <br><br><br><br><br><br><br>
     <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
+    <br><br><br><br>
 
   </div>
 </template>

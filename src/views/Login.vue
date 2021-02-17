@@ -9,7 +9,7 @@
       <v-text-field v-model="password" label="Password" outlined></v-text-field>
       <br><br>
 
-      <v-btn to="/Employee" v-on:click="login()" outlined>Login</v-btn>
+      <v-btn to="/Employee" v-on:click="employeeLogin()" outlined>Login</v-btn>
       <br>
       <br>
       <br>
@@ -24,6 +24,8 @@
 
       <v-btn to="/Employer" v-on:click="login()" outlined>Login</v-btn>
     </v-col>
+    <br><br><br><br>
+
   </div>
 
 </template>
@@ -42,6 +44,7 @@ let login = function () {
         this.$http.defaults.headers.common['Authorization'] = "Bearer " + token
       })
 }
+
 export default {
   name: 'Login',
   components: {},
@@ -52,7 +55,7 @@ export default {
     }
   },
   methods: {
-    login: login,
+    login: login
   }
 }
 </script>

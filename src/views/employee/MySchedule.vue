@@ -37,6 +37,7 @@
     <br><br><br><br>
     <v-btn to="/Employee" outlined>Back</v-btn>
     <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
+    <br><br><br><br>
 
   </div>
 

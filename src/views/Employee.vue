@@ -6,6 +6,8 @@
     <v-btn to="/employee/teamSchedule" outlined>Team Schedule</v-btn>
     <br><br>
     <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
+    <br><br><br><br>
+
   </div>
 </template>
 <script>

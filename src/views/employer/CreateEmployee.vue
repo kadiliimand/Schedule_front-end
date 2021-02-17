@@ -57,7 +57,7 @@ let createEmployee = function () {
       password: this.password
     }
   })
-      .then(response => this.create = response.data)
+      .then(response => this.create = alert(response.data))
       .catch(error => this.answer = alert(error.response.data.message))
 }
 let updateEmployee = function () {
@@ -86,8 +86,8 @@ export default {
       departmentCode: '',
       hourlyPay: '',
       password: '',
-      create: 'Employee created',
-      update: 'Employee updated',
+      create: '',
+      update: '',
         }
   },
   methods: {

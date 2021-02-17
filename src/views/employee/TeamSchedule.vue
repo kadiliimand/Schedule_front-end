@@ -1,41 +1,46 @@
 <template>
   <div>
     <v-col cols="10" sm="5">
-      Choose start date:
-      <v-date-picker v-model="dateFrom" outlined></v-date-picker>
-      Choose end date:
+
+      Choose start date: {{ dateFrom }}
+      <v-date-picker v-model="dateFrom"></v-date-picker>
+      Choose end date: {{ dateTo }}
       <v-date-picker v-model="dateTo"></v-date-picker>
-
-      <v-btn v-on:click="getData()" outlined>Get team schedule</v-btn>
-      <br><br><br><br>
-      <table border="2">
+      <v-btn v-on:click="getAllData()" outlined>Get schedule</v-btn>
+      <br><br>
+      <table border="1">
         <tr>
-          <th>Name</th>
-          <th>Date</th>
-          <th>Shift start time</th>
-          <th>Shift end time</th>
-
+          <th rowspan="2">Date</th>
+          <th v-for="row in schedule.names" colspan="2">{{ row }}</th>
         </tr>
-        <tr v-for="row in schedule">
-          <td>{{ row.name }}</td>
-          <td>{{ row.date }}</td>
-          <td>{{ row.startTime }}</td>
-          <td>{{ row.endTime }}</td>
+        <tr>
+          <template v-for="row in schedule.names">
+            <td>start time</td>
+            <td>end time</td>
+          </template>
+
+        <tr v-for="row in schedule.table">
+          <td>{{row.date}}</td>
+          <template v-for="row2 in row.employeeTimesList">
+            <td>{{ row2.fromTime }}</td>
+            <td>{{ row2.toTime }}</td>
+          </template>
         </tr>
       </table>
-
+      <br><br><br><br>
     </v-col>
-    <br><br><br><br>
     <v-btn to="/Employee" outlined>Back</v-btn>
     <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
+    <br><br><br><br>
 
   </div>
 </template>
 
 <script>
 
-let getData = function () {
-  this.$http.get(this.$host +'/public/getAllEmployeesScheduleDataWithNames', {
+let getAllData = function () {
+
+  this.$http.get(this.$host +'/public/getAllEmployeeScheduleDataWithNamesReport', {
     params: {
       dateFrom: this.dateFrom,
       dateTo: this.dateTo
@@ -44,34 +49,31 @@ let getData = function () {
       .then(response => this.schedule = response.data)
       .catch(error => this.answer = alert(error.response.data.message))
 }
+
 let logout = function () {
   localStorage.removeItem('user-token')
-}
 
+
+}
 export default {
-  name: "GetTeamSchedule",
+  name: "GetSchedule",
   components: {},
   data: function () {
     return {
       dateFrom: '',
       dateTo: '',
-      schedule: {},
+      schedule: {}
 
     }
   },
 
   methods: {
-    getData: getData,
+    getAllData: getAllData,
     logout: logout
   },
 
-  mounted() {
-    this.getData();
-  }
 }
-
 </script>
-
 <style scoped>
 
 </style>

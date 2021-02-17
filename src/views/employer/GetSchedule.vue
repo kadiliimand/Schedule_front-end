@@ -15,8 +15,8 @@
         </tr>
         <tr>
           <template v-for="row in schedule.names">
-            <td>from time</td>
-            <td>to time</td>
+            <td>start time</td>
+            <td>end time</td>
           </template>
 
         <tr v-for="row in schedule.table">
@@ -31,7 +31,8 @@
     </v-col>
     <v-btn to="/Employer" outlined>Back</v-btn>
     <v-btn v-on:click="logout()" to="/Login" outlined>Logout!</v-btn>
- 
+    <br><br><br><br>
+
   </div>
 </template>
 
