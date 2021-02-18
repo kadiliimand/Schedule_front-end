@@ -23,17 +23,17 @@
       <h1>Update Employee Data</h1>
       <br><br>
 
-      <v-text-field v-model="id" label="Employee id" outlined required></v-text-field>
+      <v-text-field v-model="updateId" label="Employee id" outlined required></v-text-field>
       <br>
-      <v-text-field v-model="name" label="Name" outlined required></v-text-field>
+      <v-text-field v-model="updateName" label="Name" outlined required></v-text-field>
       <br>
-      <v-text-field v-model="idNumber" label="Id number" outlined required></v-text-field>
+      <v-text-field v-model="updateIdNumber" label="Id number" outlined required></v-text-field>
       <br>
-      <v-text-field v-model="departmentCode" label="Department code" outlined required></v-text-field>
+      <v-text-field v-model="updateDepartmentCode" label="Department code" outlined required></v-text-field>
       <br>
-      <v-text-field v-model="hourlyPay" label="Hourly pay" outlined required></v-text-field>
+      <v-text-field v-model="updateHourlyPay" label="Hourly pay" outlined required></v-text-field>
       <br>
-      <v-text-field v-model="password" label="Password" outlined required></v-text-field>
+      <v-text-field v-model="updatePassword" label="Password" outlined required></v-text-field>
       <br>
       <v-btn v-on:click="updateEmployee()" outlined>Update</v-btn>
       <br><br><br>
@@ -63,12 +63,12 @@ let createEmployee = function () {
 let updateEmployee = function () {
   this.$http.put(this.$host +'/public/updateEmployeeData', {}, {
     params: {
-      id: this.id,
-      idNumber: this.idNumber,
-      name: this.name,
-      departmentCode: this.departmentCode,
-      hourlyPay: this.hourlyPay,
-      password: this.password
+      updateId: this.updateId,
+      updateIdNumber: this.updateIdNumber,
+      updateName: this.updateName,
+      updateDepartmentCode: this.updateDepartmentCode,
+      updateHourlyPay: this.updateHourlyPay,
+      updatePassword: this.updatePassword
     }
   })
       .then(response => this.update = response.data)
@@ -88,7 +88,14 @@ export default {
       password: '',
       create: '',
       update: '',
-        }
+      updateId:'',
+      updateIdNumber:'',
+      updateName:'',
+      updateDepartmentCode:'',
+      updateHourlyPay: '',
+      updatePassword: ''
+
+    }
   },
   methods: {
     createEmployee: createEmployee,

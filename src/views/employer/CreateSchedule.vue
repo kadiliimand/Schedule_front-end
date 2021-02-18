@@ -28,20 +28,20 @@
         <h1>Change shift</h1>
         <br><br>
 
-        <v-text-field v-model="id" label="Shift id" outlined required></v-text-field>
+        <v-text-field v-model="updateId" label="Shift id" outlined required></v-text-field>
         <br>
-        <v-text-field v-model="name" label="Employee name" outlined required></v-text-field>
+        <v-text-field v-model="updateName" label="Employee name" outlined required></v-text-field>
         <br>
         Choose shift date: {{ date }}
-        <v-date-picker v-model="date" required></v-date-picker>
+        <v-date-picker v-model="updateDate" required></v-date-picker>
         <br>
-        <v-text-field v-model="startTime" label="New shift start time" placeholder="format 00:00" outlined
+        <v-text-field v-model="updateStartTime" label="New shift start time" placeholder="format 00:00" outlined
                       required></v-text-field>
         <br>
-        <v-text-field v-model="endTime" label="New shift end time" placeholder="format 00:00" outlined
+        <v-text-field v-model="updateEndTime" label="New shift end time" placeholder="format 00:00" outlined
                       required></v-text-field>
         <br>
-        <v-text-field v-model="salaryCode" label="Salary code" outlined required></v-text-field>
+        <v-text-field v-model="updateSalaryCode" label="Salary code" outlined required></v-text-field>
         <br>
 
         <v-btn v-on:click="changeShift()">Change shift</v-btn>
@@ -50,7 +50,7 @@
         <h1>Delete shift</h1>
         <br><br>
 
-        <v-text-field v-model="id" label="Shift id" outlined required></v-text-field>
+        <v-text-field v-model="deleteId" label="Shift id" outlined required></v-text-field>
         <br>
 
         <v-btn v-on:click="deleteShift()">Delete shift</v-btn>
@@ -84,12 +84,12 @@ let createShift = function () {
 let changeShift = function () {
   this.$http.put(this.$host +'/public/changeScheduleRow', {}, {
     params: {
-      id: this.id,
-      name: this.name,
-      date: this.date,
-      startTime: this.startTime,
-      endTime: this.endTime,
-      salaryCode: this.salaryCode,
+      updateId: this.updateId,
+      updateName: this.updateName,
+      updateDate: this.updateDate,
+      updateStartTime: this.updateStartTime,
+      updateEndTime: this.updateEndTime,
+      updateSalaryCode: this.updateSalaryCode,
       answer: 'Shift changed'
     }
   })
@@ -100,7 +100,7 @@ let changeShift = function () {
 let deleteShift = function () {
   this.$http.delete(this.$host +'/public/deleteEmployeeScheduleRow', {
     params: {
-      id: this.id
+      deleteId: this.deleteId
     }
   })
       .then(response => this.deleted = alert(response.data))
@@ -121,7 +121,14 @@ export default {
       startTime: '',
       endTime: '',
       salaryCode: '',
-      id: ''
+      id: '',
+      updateId: '',
+      updateName: '',
+      updateDate: '',
+      updateStartTime: '',
+      updateEndTime: '',
+      updateSalaryCode: '',
+      deleteId: ''
     }
   },
 
