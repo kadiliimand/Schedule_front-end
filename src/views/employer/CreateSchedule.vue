@@ -115,7 +115,13 @@ export default {
       created: '',
       changed: '',
       deleted: '',
-      schedule: {}
+      schedule: {},
+      name: '',
+      date: '',
+      startTime: '',
+      endTime: '',
+      salaryCode: '',
+      id: ''
     }
   },
 

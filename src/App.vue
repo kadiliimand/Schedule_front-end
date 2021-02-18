@@ -61,6 +61,9 @@ h1{
   text-align: center;
   position: center;
 }
+table{
+  width: auto;
+}
 
 
 </style>
