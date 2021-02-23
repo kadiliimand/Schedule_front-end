@@ -1,18 +1,20 @@
+Application is made as a graduation project by 3 students in 2 weeks to practice all we have studied in Vali-IT training program.
 
-## Project setup
-```
-npm install
-```
+Schedule_front-end files: ``` Schedule_front-end / src / views / ```
 
-### Compiles and hot-reloads for development
+### Project setup ja run
 ```
-npm run serve
-```
+Check on CMD:
+npm -v
 
-### Compiles and minifies for production
-```
-npm run build
-```
+If you don't have npm
+- npm install
+- https://www.npmjs.com/get-npm
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+- In terminal: 
+  npm run serve
+
+There you will see, on what URL it will run.
+For example:  - Local:   http://localhost:8081/
+```
